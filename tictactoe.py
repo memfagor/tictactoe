@@ -115,9 +115,8 @@ class TicTacToe():
                 l['opponent'] = l.get('opponent', 0) + 1
                 l['opponent_list'].append((i, i))
         if l['empty'] != 0 and l['mine'] == 0 or l['opponent'] == 0:
-            return analyze.append(l)
-        else:
-            return analyze
+           analyze.append(l)
+        return analyze
 
     def boardAnalyzeDiagRise(self, mark='x'):
         analyze = []
@@ -140,9 +139,8 @@ class TicTacToe():
                 l['opponent'] = l.get('opponent', 0) + 1
                 l['opponent_list'].append((x, y))
         if l['empty'] != 0 and l['mine'] == 0 or l['opponent'] == 0:
-            return analyze.append(l)
-        else:
-            return analyze
+            analyze.append(l)
+        return analyze
 
 
     def boardAnalyze(self, mark='x'):
