@@ -51,8 +51,11 @@ class TicTacToe():
         analyze = []
         for x in range(self.bs):
             l = {}
+            l['empty'] = 0
             l['empty_list'] = []
+            l['mine'] = 0
             l['mine_list'] = []
+            l['opponent'] = 0
             l['opponent_list'] = []
             for y in range(self.bs):
                 if self.board[x][y] == ' ':
@@ -72,8 +75,11 @@ class TicTacToe():
         analyze = []
         for y in range(self.bs):
             l = {}
+            l['empty'] = 0
             l['empty_list'] = []
+            l['mine'] = 0
             l['mine_list'] = []
+            l['opponent'] = 0
             l['opponent_list'] = []
             for x in range(self.bs):
                 if self.board[x][y] == ' ':
@@ -92,8 +98,11 @@ class TicTacToe():
     def boardAnalyzeDiagFall(self, mark='x'):
         analyze = []
         l = {}
+        l['empty'] = 0
         l['empty_list'] = []
+        l['mine'] = 0
         l['mine_list'] = []
+        l['opponent'] = 0
         l['opponent_list'] = []
         for i in range(self.bs):
             if self.board[i][i] == ' ':
@@ -113,8 +122,11 @@ class TicTacToe():
     def boardAnalyzeDiagRise(self, mark='x'):
         analyze = []
         l = {}
+        l['empty'] = 0
         l['empty_list'] = []
+        l['mine'] = 0
         l['mine_list'] = []
+        l['opponent'] = 0
         l['opponent_list'] = []
         for y in range(self.bs):
             x = self.bs - 1 - y
