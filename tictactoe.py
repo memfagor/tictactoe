@@ -23,7 +23,7 @@ class TicTacToe():
             for x in range(self.bs):
                 if self.board[x][y] != self.board[0][y]: break
             else: break
-        else return False
+        else: return False
         return self.board[0][y]
 
     def checkDiagFall(self):
@@ -57,7 +57,7 @@ class TicTacToe():
                 else:
                     l['opponent'] = l.get('opponent', 0) + 1
                     l['opponent_list'].append((x, y))
-            if l['empty'] != 0 and l['mine'] = 0 or l['opponent'] = 0:
+            if l['empty'] != 0 and l['mine'] == 0 or l['opponent'] == 0:
                 analyze.append(l)
         return analyze
 
@@ -78,7 +78,7 @@ class TicTacToe():
                 else:
                     l['opponent'] = l.get('opponent', 0) + 1
                     l['opponent_list'].append((x, y))
-            if l['empty'] != 0 and l['mine'] = 0 or l['opponent'] = 0:
+            if l['empty'] != 0 and l['mine'] == 0 or l['opponent'] == 0:
                 analyze.append(l)
         return analyze
 
@@ -98,7 +98,7 @@ class TicTacToe():
             else:
                 l['opponent'] = l.get('opponent', 0) + 1
                 l['opponent_list'].append((i, i))
-        if l['empty'] != 0 and l['mine'] = 0 or l['opponent'] = 0:
+        if l['empty'] != 0 and l['mine'] == 0 or l['opponent'] == 0:
             return analyze.append(l)
         else:
             return analyze
@@ -120,7 +120,7 @@ class TicTacToe():
             else:
                 l['opponent'] = l.get('opponent', 0) + 1
                 l['opponent_list'].append((x, y))
-        if l['empty'] != 0 and l['mine'] = 0 or l['opponent'] = 0:
+        if l['empty'] != 0 and l['mine'] == 0 or l['opponent'] == 0:
             return analyze.append(l)
         else:
             return analyze
