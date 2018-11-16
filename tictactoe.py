@@ -17,6 +17,12 @@ class TicTacToe():
     def getBoardAnalyze(self):
         return self.ba
 
+    def printBoardAnalyze(self):
+        for index, line in enumerate(self.ba):
+            print('Line {}:'.format(index))
+            for key in line:
+                print('{0} : {1}'.format(key, line[key]))
+
     def checkHorizLines(self):
         for line in self.board:
             for x in line[1:]:
@@ -150,4 +156,4 @@ class TicTacToe():
         self.ba.extend(self.boardAnalyzeDiagRise(mark))
         self.ba.extend(self.boardAnalyzeDiagFall(mark))
 
-        
+
