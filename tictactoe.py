@@ -10,6 +10,10 @@ class TicTacToe():
     def getBoardSize(self):
         return self.bs
 
+    def printBoard(self):
+        for line in self.board:
+            print(line)
+
     def checkHorizLines(self):
         for line in self.board:
             for x in line[1:]:
