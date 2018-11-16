@@ -14,6 +14,9 @@ class TicTacToe():
         for line in self.board:
             print(line)
 
+    def getBoardAnalyze(self):
+        return self.ba
+
     def checkHorizLines(self):
         for line in self.board:
             for x in line[1:]:
