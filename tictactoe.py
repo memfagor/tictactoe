@@ -53,16 +53,20 @@ class TicTacToe():
             else: return self.board[x][0]
             return False
 
+    def generateAnalyzeDict():
+        d = {}
+        d['empty'] = 0
+        d['empty_list'] = []
+        d['mine'] = 0
+        d['mine_list'] = []
+        d['opponent'] = 0
+        d['opponent_list'] = []
+        return d
+
     def boardAnalyzeHoriz(self, mark='x'):
         analyze = []
         for x in range(self.bs):
-            l = {}
-            l['empty'] = 0
-            l['empty_list'] = []
-            l['mine'] = 0
-            l['mine_list'] = []
-            l['opponent'] = 0
-            l['opponent_list'] = []
+            l = generateAnalyzeDict()
             for y in range(self.bs):
                 if self.board[x][y] == ' ':
                     l['empty'] = l.get('empty', 0) + 1
@@ -80,13 +84,7 @@ class TicTacToe():
     def boardAnalyzeVert(self, mark='x'):
         analyze = []
         for y in range(self.bs):
-            l = {}
-            l['empty'] = 0
-            l['empty_list'] = []
-            l['mine'] = 0
-            l['mine_list'] = []
-            l['opponent'] = 0
-            l['opponent_list'] = []
+            l = generateAnalyzeDict()
             for x in range(self.bs):
                 if self.board[x][y] == ' ':
                     l['empty'] = l.get('empty', 0) + 1
@@ -103,13 +101,7 @@ class TicTacToe():
 
     def boardAnalyzeDiagFall(self, mark='x'):
         analyze = []
-        l = {}
-        l['empty'] = 0
-        l['empty_list'] = []
-        l['mine'] = 0
-        l['mine_list'] = []
-        l['opponent'] = 0
-        l['opponent_list'] = []
+        l = generateAnalyzeDict()
         for i in range(self.bs):
             if self.board[i][i] == ' ':
                 l['empty'] = l.get('empty', 0) + 1
@@ -126,13 +118,7 @@ class TicTacToe():
 
     def boardAnalyzeDiagRise(self, mark='x'):
         analyze = []
-        l = {}
-        l['empty'] = 0
-        l['empty_list'] = []
-        l['mine'] = 0
-        l['mine_list'] = []
-        l['opponent'] = 0
-        l['opponent_list'] = []
+        l = generateAnalyzeDict()
         for y in range(self.bs):
             x = self.bs - 1 - y
             if self.board[x][y] == ' ':
@@ -155,5 +141,4 @@ class TicTacToe():
         self.ba.extend(self.boardAnalyzeVert(mark))
         self.ba.extend(self.boardAnalyzeDiagRise(mark))
         self.ba.extend(self.boardAnalyzeDiagFall(mark))
-
 
