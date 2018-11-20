@@ -66,20 +66,23 @@ class TicTacToe():
     def lineImportance(d):
         return d['empty'] != 0 and d['mine'] == 0 or d['opponent'] == 0
 
+    def fillDict(b, d, pos_x, pos_y):
+        if b[pos_x][pos_y] == ' ':
+            d['empty'] = d.get('empty', 0) + 1
+            d['empty_list'].append((pos_x, pos_y))
+        elif b[pos_x][pos_y] == mark:
+            d['mine'] = d.get('mine', 0) + 1
+            d['mine_list'].append((pos_x, pos_y))
+        else:
+            d['opponent'] = d.get('opponent', 0) + 1
+            d['opponent_list'].append((pos_x, pos_y))
+
     def boardAnalyzeHoriz(self, mark='x'):
         analyze = []
         for x in range(self.bs):
             l = generateAnalyzeDict()
             for y in range(self.bs):
-                if self.board[x][y] == ' ':
-                    l['empty'] = l.get('empty', 0) + 1
-                    l['empty_list'].append((x, y))
-                elif self.board[x][y] == mark:
-                    l['mine'] = l.get('mine', 0) + 1
-                    l['mine_list'].append((x, y))
-                else:
-                    l['opponent'] = l.get('opponent', 0) + 1
-                    l['opponent_list'].append((x, y))
+                fillDict(self.board, l, x, y)
             if lineImportance(l):
                 analyze.append(l)
         return analyze
@@ -89,15 +92,7 @@ class TicTacToe():
         for y in range(self.bs):
             l = generateAnalyzeDict()
             for x in range(self.bs):
-                if self.board[x][y] == ' ':
-                    l['empty'] = l.get('empty', 0) + 1
-                    l['empty_list'].append((x, y))
-                elif self.board[x][y] == mark:
-                    l['mine'] = l.get('mine', 0) + 1
-                    l['mine_list'].append((x, y))
-                else:
-                    l['opponent'] = l.get('opponent', 0) + 1
-                    l['opponent_list'].append((x, y))
+                fillDict(self.board, l, x, y)
             if lineImportance(l):
                 analyze.append(l)
         return analyze
@@ -106,15 +101,7 @@ class TicTacToe():
         analyze = []
         l = generateAnalyzeDict()
         for i in range(self.bs):
-            if self.board[i][i] == ' ':
-                l['empty'] = l.get('empty', 0) + 1
-                l['empty_list'].append((i, i))
-            elif self.board[i][i] == mark:
-                l['mine'] = l.get('mine', 0) + 1
-                l['mine_list'].append((i, i))
-            else:
-                l['opponent'] = l.get('opponent', 0) + 1
-                l['opponent_list'].append((i, i))
+            fillDict(self.board, l, i, i)
         if lineImportance(l):
             analyze.append(l)
         return analyze
@@ -124,15 +111,7 @@ class TicTacToe():
         l = generateAnalyzeDict()
         for y in range(self.bs):
             x = self.bs - 1 - y
-            if self.board[x][y] == ' ':
-                l['empty'] = l.get('empty', 0) + 1
-                l['empty_list'].append((x, y))
-            elif self.board[x][y] == mark:
-                l['mine'] = l.get('mine', 0) + 1
-                l['mine_list'].append((x, y))
-            else:
-                l['opponent'] = l.get('opponent', 0) + 1
-                l['opponent_list'].append((x, y))
+            fillDict(self.board, l, x, y)
         if lineImportance(l):
             analyze.append(l)
         return analyze
