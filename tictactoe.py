@@ -63,6 +63,9 @@ class TicTacToe():
         d['opponent_list'] = []
         return d
 
+    def lineImportance(d):
+        return d['empty'] != 0 and d['mine'] == 0 or d['opponent'] == 0
+
     def boardAnalyzeHoriz(self, mark='x'):
         analyze = []
         for x in range(self.bs):
@@ -77,7 +80,7 @@ class TicTacToe():
                 else:
                     l['opponent'] = l.get('opponent', 0) + 1
                     l['opponent_list'].append((x, y))
-            if l['empty'] != 0 and l['mine'] == 0 or l['opponent'] == 0:
+            if lineImportance(l):
                 analyze.append(l)
         return analyze
 
@@ -95,7 +98,7 @@ class TicTacToe():
                 else:
                     l['opponent'] = l.get('opponent', 0) + 1
                     l['opponent_list'].append((x, y))
-            if l['empty'] != 0 and l['mine'] == 0 or l['opponent'] == 0:
+            if lineImportance(l):
                 analyze.append(l)
         return analyze
 
@@ -112,8 +115,8 @@ class TicTacToe():
             else:
                 l['opponent'] = l.get('opponent', 0) + 1
                 l['opponent_list'].append((i, i))
-        if l['empty'] != 0 and l['mine'] == 0 or l['opponent'] == 0:
-           analyze.append(l)
+        if lineImportance(l):
+            analyze.append(l)
         return analyze
 
     def boardAnalyzeDiagRise(self, mark='x'):
@@ -130,7 +133,7 @@ class TicTacToe():
             else:
                 l['opponent'] = l.get('opponent', 0) + 1
                 l['opponent_list'].append((x, y))
-        if l['empty'] != 0 and l['mine'] == 0 or l['opponent'] == 0:
+        if lineImportance(l):
             analyze.append(l)
         return analyze
 
