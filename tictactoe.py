@@ -12,18 +12,8 @@ class TicTacToe():
     def getBoardSize(self):
         return self.bs
 
-    def printBoard(self):
-        for line in self.board:
-            print(line)
-
     def getBoardAnalyze(self):
         return self.ba
-
-    def printBoardAnalyze(self):
-        for index, line in enumerate(self.ba):
-            print('Line {}:'.format(index))
-            for key in line:
-                print('{0} : {1}'.format(key, line[key]))
 
     def checkHorizLines(self):
         for line in self.board:
@@ -94,11 +84,22 @@ class TicTacToe():
             analyze.append(l())
         return analyze
 
-
     def boardAnalyze(self, mark='x'):
         self.ba = []
         self.ba.extend(self.boardAnalyzeHoriz(mark))
         self.ba.extend(self.boardAnalyzeVert(mark))
         self.ba.extend(self.boardAnalyzeDiagRise(mark))
         self.ba.extend(self.boardAnalyzeDiagFall(mark))
+
+class TTT_TextMode(TicTacToe):
+
+    def printBoard(self):
+        for line in self.board:
+            print(line)
+
+    def printBoardAnalyze(self):
+        for index, line in enumerate(self.ba):
+            print('Line {}:'.format(index))
+            for key in line:
+                print('{0} : {1}'.format(key, line[key]))
 
