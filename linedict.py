@@ -3,7 +3,7 @@
 class LineDict():
 
     def __init__(self):
-        self. d = {}
+        self.d = {}
         self.d['empty'] = 0
         self.d['empty_list'] = []
         self.d['mine'] = 0
